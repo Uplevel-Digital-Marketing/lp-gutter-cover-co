@@ -29,25 +29,48 @@ const PreQualificationForm = () => {
   
   // Initialize Google Places Autocomplete
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.google && addressInputRef.current) {
-      const autocomplete = new window.google.maps.places.Autocomplete(addressInputRef.current, {
-        componentRestrictions: { country: 'us' },
-        fields: ['address_components', 'formatted_address'],
-        types: ['address']
-      });
+    // Wait for Google Maps API to load
+    const initAutocomplete = () => {
+      try {
+        if (typeof window !== 'undefined' &&
+            window.google &&
+            window.google.maps &&
+            window.google.maps.places &&
+            window.google.maps.places.Autocomplete &&
+            addressInputRef.current) {
 
-      autocomplete.addListener('place_changed', () => {
-        const place = autocomplete.getPlace();
-        if (place && place.formatted_address) {
-          setFormData(prevState => ({
-            ...prevState,
-            address: place.formatted_address
-          }));
+          const autocomplete = new window.google.maps.places.Autocomplete(addressInputRef.current, {
+            componentRestrictions: { country: 'us' },
+            fields: ['address_components', 'formatted_address'],
+            types: ['address']
+          });
+
+          autocomplete.addListener('place_changed', () => {
+            const place = autocomplete.getPlace();
+            if (place && place.formatted_address) {
+              setFormData(prevState => ({
+                ...prevState,
+                address: place.formatted_address
+              }));
+            }
+          });
         }
-      });
+      } catch (error) {
+        // Silently fail - address input will work as regular text input
+        console.warn('Google Places API not available - using standard address input');
+      }
+    };
+
+    // Try to initialize immediately
+    initAutocomplete();
+
+    // Also listen for Google Maps script load event
+    if (typeof window !== 'undefined') {
+      window.addEventListener('load', initAutocomplete);
+      return () => window.removeEventListener('load', initAutocomplete);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Only run once on mount when Google Maps is loaded
+  }, []); // Only run once on mount
   
   // Get UTM parameters from URL and store in cookies on component mount
   useEffect(() => {
