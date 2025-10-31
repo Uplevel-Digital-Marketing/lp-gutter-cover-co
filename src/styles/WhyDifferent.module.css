@@ -1,0 +1,340 @@
+.differentSection {
+  padding: 6rem 1.5rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.differentSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233182ce' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.8;
+  z-index: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.headerWrapper {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #2d3748;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.titleDivider {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #3182ce, #38b2ac);
+  margin: 1.2rem auto 1.5rem;
+  border-radius: 2px;
+}
+
+.sectionSubtitle {
+  font-size: 1.4rem;
+  color: #4a5568;
+  font-weight: 500;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.8rem;
+  margin-bottom: 4rem;
+}
+
+.featureCard {
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.featureCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border-color: var(--feature-color, #3182ce);
+}
+
+.featureHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.featureIconWrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background-color: rgba(var(--feature-color-rgb, 49, 130, 206), 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover .featureIconWrapper {
+  background-color: var(--feature-color, #3182ce);
+  transform: scale(1.1) rotate(5deg);
+}
+
+.featureIcon {
+  font-size: 1.6rem;
+  color: var(--feature-color, #3182ce);
+  transition: color 0.3s ease;
+}
+
+.featureCard:hover .featureIcon {
+  color: white;
+}
+
+.featureNumber {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover .featureNumber {
+  color: rgba(var(--feature-color-rgb, 49, 130, 206), 0.2);
+  transform: scale(1.2);
+}
+
+.featureTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #2d3748;
+  transition: color 0.3s ease;
+}
+
+.featureCard:hover .featureTitle {
+  color: var(--feature-color, #3182ce);
+}
+
+.featureDescription {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #4a5568;
+  flex-grow: 1;
+}
+
+.featureHighlight {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: var(--feature-color, #3182ce);
+  transition: width 0.3s ease;
+}
+
+.featureCard:hover .featureHighlight {
+  width: 100%;
+}
+
+.companyInfo {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  align-items: center;
+}
+
+.infoCol {
+  display: flex;
+  justify-content: center;
+}
+
+.locallyOwnedImageContainer {
+  max-width: 220px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 5px solid white;
+}
+
+.locallyOwnedImageContainer:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.locallyOwnedImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.statBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1.5rem;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.statItem {
+  text-align: center;
+  min-width: 120px;
+}
+
+.statNumber {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #3182ce;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  display: block;
+  font-size: 0.9rem;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.quote {
+  background: linear-gradient(135deg, #3182ce, #38b2ac);
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 10px 30px rgba(49, 130, 206, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.quote::before {
+  content: '"';
+  position: absolute;
+  top: -50px;
+  left: 20px;
+  font-size: 200px;
+  opacity: 0.1;
+  font-family: serif;
+}
+
+.quoteText {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.quoteAuthor {
+  font-size: 1.1rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .sectionTitle {
+    font-size: 2.4rem;
+  }
+  
+  .companyInfo {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .differentSection {
+    padding: 5rem 1.2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2.1rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.2rem;
+  }
+  
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .statBox {
+    padding: 1.5rem;
+  }
+  
+  .statItem {
+    min-width: 100px;
+  }
+  
+  .statNumber {
+    font-size: 2rem;
+  }
+  
+  .quote {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .quoteText {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .titleDivider {
+    width: 80px;
+    margin: 1rem auto 1.2rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.1rem;
+  }
+  
+  .featureTitle {
+    font-size: 1.2rem;
+  }
+  
+  .featureCard {
+    padding: 1.5rem;
+  }
+  
+  .statBox {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .quoteText {
+    font-size: 1.1rem;
+  }
+} 

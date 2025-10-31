@@ -1,0 +1,460 @@
+.processSection {
+  padding: 6rem 1.5rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e6f0fd 100%);
+  position: relative;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header Styles */
+.headerWrapper {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #2d3748;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.titleDivider {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #3182ce, #38b2ac);
+  margin: 1.2rem auto 1.5rem;
+  border-radius: 2px;
+}
+
+.sectionSubtitle {
+  font-size: 1.4rem;
+  color: #4a5568;
+  font-weight: 500;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Steps Container */
+.stepsContainer {
+  position: relative;
+  padding: 0 0 2rem;
+}
+
+.step {
+  display: flex;
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  padding: 1.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+.activeStep {
+  border-color: var(--step-color, #3182ce);
+  box-shadow: 0 12px 25px rgba(var(--step-color-rgb, 49, 130, 206), 0.1);
+}
+
+/* Step Number and Icon */
+.stepNumber {
+  position: relative;
+  margin-right: 2rem;
+}
+
+.stepIconWrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(var(--step-color-rgb, 49, 130, 206), 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+
+.step:hover .stepIconWrapper {
+  transform: scale(1.05);
+  background-color: var(--step-color, #3182ce);
+}
+
+.activeStep .stepIconWrapper {
+  background-color: var(--step-color, #3182ce);
+}
+
+.stepIcon {
+  font-size: 1.8rem;
+  color: var(--step-color, #3182ce);
+  transition: all 0.3s ease;
+}
+
+.step:hover .stepIcon,
+.activeStep .stepIcon {
+  color: white;
+}
+
+.stepCounter {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid var(--step-color, #3182ce);
+  color: var(--step-color, #3182ce);
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+}
+
+/* Step Content */
+.stepContent {
+  flex: 1;
+}
+
+.stepTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #2d3748;
+  transition: color 0.3s ease;
+}
+
+.step:hover .stepTitle {
+  color: var(--step-color, #3182ce);
+}
+
+.stepDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4a5568;
+  margin-bottom: 1.2rem;
+}
+
+.stepDetails {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, margin 0.3s ease, opacity 0.2s ease;
+  opacity: 0;
+  margin-top: 0;
+  background-color: rgba(var(--step-color-rgb, 49, 130, 206), 0.05);
+  border-radius: 8px;
+}
+
+.showDetails {
+  max-height: 300px;
+  opacity: 1;
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  padding: 1rem;
+}
+
+.stepButton {
+  display: none;
+}
+
+/* Connector */
+.connector {
+  position: absolute;
+  bottom: -30px;
+  left: 30px;
+  color: var(--step-color, #3182ce);
+  z-index: 5;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+/* Benefits Section */
+.benefitsSection {
+  margin: 4rem 0;
+  padding: 2.5rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.benefitsHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.benefitsHeader h4 {
+  font-size: 1.6rem;
+  color: #2d3748;
+  font-weight: 700;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.benefitItem {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.benefitItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.benefitIcon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.benefitTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.benefitText {
+  font-size: 0.9rem;
+  color: #4a5568;
+  line-height: 1.5;
+}
+
+/* Testimonial */
+.testimonialBox {
+  background: linear-gradient(135deg, #3182ce 0%, #2b6cb0 100%);
+  border-radius: 12px;
+  padding: 3rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(49, 130, 206, 0.3);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.testimonialBox::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.1;
+}
+
+.testimonialContent {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.quoteIcon {
+  position: absolute;
+  top: -60px;
+  left: -20px;
+  font-size: 150px;
+  opacity: 0.1;
+  font-family: Georgia, serif;
+}
+
+.testimonialText {
+  font-size: 1.3rem;
+  line-height: 1.7;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.testimonialAuthor {
+  display: flex;
+  align-items: center;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorName {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+}
+
+.authorTitle {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.ratingBadge {
+  background: white;
+  color: #2b6cb0;
+  border-radius: 12px;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-left: 2rem;
+}
+
+.ratingLabel {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.ratingValue {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #2b6cb0;
+  line-height: 1;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .sectionTitle {
+    font-size: 2.4rem;
+  }
+  
+  .benefitsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .testimonialBox {
+    flex-direction: column;
+    padding: 2rem;
+  }
+  
+  .ratingBadge {
+    margin: 2rem 0 0 0;
+    padding: 1rem 3rem;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .ratingLabel {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .processSection {
+    padding: 4rem 1.2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2.1rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.2rem;
+  }
+  
+  .step {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .stepNumber {
+    margin-right: 1.2rem;
+  }
+  
+  .stepIconWrapper {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .stepIcon {
+    font-size: 1.5rem;
+  }
+  
+  .stepTitle {
+    font-size: 1.2rem;
+  }
+  
+  .testimonialText {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .titleDivider {
+    width: 80px;
+    margin: 1rem auto 1.2rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.1rem;
+  }
+  
+  .step {
+    flex-direction: column;
+  }
+  
+  .stepNumber {
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+    align-self: flex-start;
+  }
+  
+  .benefitsSection {
+    padding: 1.5rem;
+  }
+  
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .testimonialBox {
+    padding: 1.5rem;
+  }
+  
+  .testimonialText {
+    font-size: 1rem;
+  }
+  
+  .quoteIcon {
+    font-size: 100px;
+    top: -40px;
+    left: -15px;
+  }
+} 

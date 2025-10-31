@@ -1,0 +1,322 @@
+{
+  "mobile": {
+    "hamburger": {
+      "exists": true,
+      "size": {
+        "x": 499.9999084472656,
+        "y": 53.515625,
+        "width": 51.999969482421875,
+        "height": 52
+      },
+      "touchTarget": "PASS"
+    },
+    "menuOpened": true,
+    "phoneLink": {
+      "exists": true,
+      "text": "(440) 336-8092",
+      "size": null,
+      "touchTarget": "FAIL"
+    },
+    "formInputs": [
+      {
+        "id": "name",
+        "name": "name",
+        "type": "text",
+        "fontSize": "16px",
+        "height": 54,
+        "preventsZoom": true
+      },
+      {
+        "id": "phone",
+        "name": "phone",
+        "type": "tel",
+        "fontSize": "16px",
+        "height": 54,
+        "preventsZoom": true
+      },
+      {
+        "id": "email",
+        "name": "email",
+        "type": "email",
+        "fontSize": "16px",
+        "height": 54,
+        "preventsZoom": true
+      },
+      {
+        "id": "address",
+        "name": "address",
+        "type": "text",
+        "fontSize": "16px",
+        "height": 54,
+        "preventsZoom": true
+      },
+      {
+        "id": "property_type",
+        "name": "property_type",
+        "type": null,
+        "fontSize": "16px",
+        "height": 54,
+        "preventsZoom": true
+      },
+      {
+        "id": "issue",
+        "name": "issue",
+        "type": null,
+        "fontSize": "16px",
+        "height": 54,
+        "preventsZoom": true
+      },
+      {
+        "id": "details",
+        "name": "details",
+        "type": null,
+        "fontSize": "16px",
+        "height": 120,
+        "preventsZoom": true
+      }
+    ],
+    "submitButton": {
+      "exists": true,
+      "text": "Request Free Consultation",
+      "size": {
+        "x": 39.999908447265625,
+        "y": -386.4375,
+        "width": 295,
+        "height": 60
+      },
+      "touchTarget": "PASS",
+      "isWide": false
+    },
+    "horizontalScroll": "FAIL",
+    "hero": {
+      "hasBgImage": true,
+      "ctaExists": true,
+      "ctaTouchTarget": "PASS"
+    }
+  },
+  "desktop": {
+    "navigation": {
+      "desktopNavExists": true,
+      "hamburgerHidden": true
+    },
+    "formLayout": {
+      "width": 900,
+      "display": "block",
+      "gridColumns": "none",
+      "isMultiColumn": false
+    }
+  },
+  "performance": {
+    "mobile": {
+      "loadTime": 938.3000000007451,
+      "domContentLoaded": 542.9000000003725,
+      "firstPaint": 716,
+      "firstContentfulPaint": 716,
+      "largestContentfulPaint": 0
+    },
+    "desktop": {
+      "loadTime": 1121.699999999255,
+      "domContentLoaded": 550.0999999996275,
+      "firstPaint": 760,
+      "firstContentfulPaint": 760,
+      "largestContentfulPaint": 0
+    }
+  },
+  "console": [
+    {
+      "type": "log",
+      "text": "[HMR] connected",
+      "context": "mobile"
+    },
+    {
+      "type": "warning",
+      "text": "Image with src \"/assets/logo-gc-2020.jpeg\" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: \"auto\"' or 'height: \"auto\"' to maintain the aspect ratio.",
+      "context": "mobile"
+    },
+    {
+      "type": "warning",
+      "text": "Google Maps JavaScript API has been loaded directly without loading=async. This can result in suboptimal performance. For best-practice loading patterns please see https://goo.gle/js-api-loading",
+      "context": "mobile"
+    },
+    {
+      "type": "warning",
+      "text": "Deprecated API for given entry type.",
+      "context": "mobile"
+    },
+    {
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold",
+      "context": "desktop"
+    },
+    {
+      "type": "log",
+      "text": "[HMR] connected",
+      "context": "desktop"
+    },
+    {
+      "type": "warning",
+      "text": "Google Maps JavaScript API has been loaded directly without loading=async. This can result in suboptimal performance. For best-practice loading patterns please see https://goo.gle/js-api-loading",
+      "context": "desktop"
+    },
+    {
+      "type": "warning",
+      "text": "As of March 1st, 2025, google.maps.places.Autocomplete is not available to new customers. Please use google.maps.places.PlaceAutocompleteElement instead. At this time, google.maps.places.Autocomplete is not scheduled to be discontinued, but google.maps.places.PlaceAutocompleteElement is recommended over google.maps.places.Autocomplete. While google.maps.places.Autocomplete will continue to receive bug fixes for any major regressions, existing bugs in google.maps.places.Autocomplete will not be addressed. At least 12 months notice will be given before support is discontinued. Please see https://developers.google.com/maps/legacy for additional details and https://developers.google.com/maps/documentation/javascript/places-migration-overview for the migration guide.",
+      "context": "desktop"
+    },
+    {
+      "type": "warning",
+      "text": "Image with src \"/assets/logo-gc-2020.jpeg\" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: \"auto\"' or 'height: \"auto\"' to maintain the aspect ratio.",
+      "context": "desktop"
+    },
+    {
+      "type": "warning",
+      "text": "Image with src \"/assets/gutter-guards/gutter-guards-10.webp\" has \"fill\" but is missing \"sizes\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes",
+      "context": "desktop"
+    },
+    {
+      "type": "warning",
+      "text": "Deprecated API for given entry type.",
+      "context": "desktop"
+    }
+  ],
+  "network": [
+    {
+      "url": "http://localhost:3000/",
+      "status": 200,
+      "type": "document",
+      "context": "mobile"
+    },
+    {
+      "url": "http://localhost:3000/assets/gutter-guards/gutter-guards-7.webp",
+      "status": 200,
+      "type": "image",
+      "context": "mobile"
+    },
+    {
+      "url": "http://localhost:3000/assets/gutter-guards/gutter-guards-2.webp",
+      "status": 200,
+      "type": "image",
+      "context": "mobile"
+    },
+    {
+      "url": "http://localhost:3000/assets/gutter-guards/gutter-guards-6.webp",
+      "status": 200,
+      "type": "image",
+      "context": "mobile"
+    },
+    {
+      "url": "http://localhost:3000/_next/static/chunks/react-refresh.js",
+      "status": 200,
+      "type": "script",
+      "context": "mobile"
+    },
+    {
+      "url": "http://localhost:3000/_next/static/chunks/webpack.js",
+      "status": 200,
+      "type": "script",
+      "context": "mobile"
+    },
+    {
+      "url": "http://localhost:3000/_next/image?url=%2Fassets%2Flogo-gc-2020.jpeg&w=256&q=75",
+      "status": 200,
+      "type": "image",
+      "context": "mobile"
+    },
+    {
+      "url": "http://localhost:3000/_next/static/development/_buildManifest.js",
+      "status": 200,
+      "type": "script",
+      "context": "mobile"
+    },
+    {
+      "url": "http://localhost:3000/_next/static/chunks/pages/_app.js",
+      "status": 200,
+      "type": "script",
+      "context": "mobile"
+    },
+    {
+      "url": "http://localhost:3000/assets/gutter-guards/gutter-guards-10.webp",
+      "status": 200,
+      "type": "image",
+      "context": "mobile"
+    },
+    {
+      "url": "http://localhost:3000/_next/static/development/_ssgManifest.js",
+      "status": 200,
+      "type": "script",
+      "context": "mobile"
+    },
+    {
+      "url": "http://localhost:3000/assets/gutter-guards/gutter-guards-set2-4.webp",
+      "status": 200,
+      "type": "image",
+      "context": "mobile"
+    },
+    {
+      "url": "http://localhost:3000/assets/gutter-guards/gutter-guards-set2-7.webp",
+      "status": 200,
+      "type": "image",
+      "context": "mobile"
+    },
+    {
+      "url": "http://localhost:3000/_next/static/chunks/pages/index.js",
+      "status": 200,
+      "type": "script",
+      "context": "mobile"
+    },
+    {
+      "url": "http://localhost:3000/_next/image?url=%2Fassets%2Fgutter-guards%2Fgutter-guards-10.webp&w=640&q=75",
+      "status": 200,
+      "type": "image",
+      "context": "mobile"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap",
+      "status": 200,
+      "type": "stylesheet",
+      "context": "mobile"
+    },
+    {
+      "url": "http://localhost:3000/_next/static/chunks/main.js",
+      "status": 200,
+      "type": "script",
+      "context": "mobile"
+    },
+    {
+      "url": "http://localhost:3000/_next/static/development/_devMiddlewareManifest.json",
+      "status": 200,
+      "type": "fetch",
+      "context": "mobile"
+    },
+    {
+      "url": "http://localhost:3000/assets/heater-cap/heated-gutters-hero.webp",
+      "status": 200,
+      "type": "image",
+      "context": "mobile"
+    },
+    {
+      "url": "https://maps.googleapis.com/maps/api/js?key=AIzaSyAHU006iaNiNPp0p0bZ_6g2T37Ch-e_Bqs&libraries=places",
+      "status": 200,
+      "type": "script",
+      "context": "mobile"
+    },
+    {
+      "url": "https://maps.googleapis.com/maps/api/mapsjs/gen_204?csp_test=true",
+      "status": 200,
+      "type": "xhr",
+      "context": "mobile"
+    },
+    {
+      "url": "https://maps.googleapis.com/maps-api-v3/api/js/62/12c/common.js",
+      "status": 200,
+      "type": "script",
+      "context": "mobile"
+    },
+    {
+      "url": "https://maps.googleapis.com/maps-api-v3/api/js/62/12c/util.js",
+      "status": 200,
+      "type": "script",
+      "context": "mobile"
+    }
+  ]
+}

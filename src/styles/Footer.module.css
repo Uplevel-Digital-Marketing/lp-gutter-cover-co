@@ -1,0 +1,102 @@
+.footer {
+  background-color: #3f3c40;
+  color: white;
+  padding: 4rem 1rem 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mainContent {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.companyName {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #62cadb;
+}
+
+.sectionTitle {
+  font-size: 1.3rem;
+  color: #62cadb;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contactItem, .serviceItem {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.contactItem a {
+  display: inline-block;
+  padding: 6px 8px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  color: white;
+  transition: color 0.2s ease;
+}
+
+.contactItem a:hover {
+  color: var(--primary);
+}
+
+.linksList {
+  list-style: none;
+  padding: 0;
+}
+
+.linksList li {
+  margin-bottom: 0.75rem;
+}
+
+.linksList a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.linksList a:hover {
+  color: #62cadb;
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+}
+
+.copyright p {
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .mainContent {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .companyInfo {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 992px) {
+  .mainContent {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .companyInfo {
+    grid-column: span 1;
+  }
+} 

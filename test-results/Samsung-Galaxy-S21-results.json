@@ -1,0 +1,34 @@
+{
+  "device": "Samsung Galaxy S21",
+  "viewport": "360x800",
+  "timestamp": "2025-10-31T16:11:44.466Z",
+  "checks": {
+    "loadTimeUnder3s": true,
+    "noHorizontalScroll": true,
+    "touchTargets": {
+      "pass": true,
+      "smallTargets": []
+    },
+    "formInputs": {
+      "pass": true,
+      "inputs": []
+    },
+    "mobileMenu": false,
+    "noConsoleErrors": false,
+    "imagesLoaded": {
+      "pass": true,
+      "total": 0,
+      "failed": 0,
+      "failedSrcs": []
+    }
+  },
+  "loadTime": 965,
+  "coreWebVitals": {
+    "lcp": "0.36s",
+    "fid": "N/A",
+    "cls": "N/A",
+    "lcpPass": true,
+    "fidPass": null,
+    "clsPass": null
+  }
+}

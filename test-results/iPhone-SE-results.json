@@ -1,0 +1,238 @@
+{
+  "device": "iPhone SE",
+  "viewport": "375x667",
+  "timestamp": "2025-10-31T16:09:22.024Z",
+  "checks": {
+    "loadTimeUnder3s": true,
+    "noHorizontalScroll": true,
+    "touchTargets": {
+      "pass": false,
+      "smallTargets": [
+        {
+          "element": "A",
+          "text": "Skip to main content",
+          "width": 187,
+          "height": 42,
+          "pass": false
+        },
+        {
+          "element": "A",
+          "text": "Solutions",
+          "width": 0,
+          "height": 0,
+          "pass": false
+        },
+        {
+          "element": "A",
+          "text": "Why Choose Us",
+          "width": 0,
+          "height": 0,
+          "pass": false
+        },
+        {
+          "element": "A",
+          "text": "Process",
+          "width": 0,
+          "height": 0,
+          "pass": false
+        },
+        {
+          "element": "A",
+          "text": "Reviews",
+          "width": 0,
+          "height": 0,
+          "pass": false
+        },
+        {
+          "element": "A",
+          "text": "FAQ",
+          "width": 0,
+          "height": 0,
+          "pass": false
+        },
+        {
+          "element": "A",
+          "text": "Contact",
+          "width": 0,
+          "height": 0,
+          "pass": false
+        },
+        {
+          "element": "A",
+          "text": "(440) 336-8092",
+          "width": 0,
+          "height": 0,
+          "pass": false
+        },
+        {
+          "element": "BUTTON",
+          "text": "Learn More About Heater Cap",
+          "width": 273,
+          "height": 44,
+          "pass": false
+        },
+        {
+          "element": "A",
+          "text": "Contact us",
+          "width": 80,
+          "height": 19,
+          "pass": false
+        },
+        {
+          "element": "BUTTON",
+          "text": "View testimonial 1",
+          "width": 10,
+          "height": 10,
+          "pass": false
+        },
+        {
+          "element": "BUTTON",
+          "text": "View testimonial 2",
+          "width": 13,
+          "height": 13,
+          "pass": false
+        },
+        {
+          "element": "BUTTON",
+          "text": "View testimonial 3",
+          "width": 10,
+          "height": 10,
+          "pass": false
+        },
+        {
+          "element": "A",
+          "text": "contact us",
+          "width": 85,
+          "height": 19,
+          "pass": false
+        },
+        {
+          "element": "A",
+          "text": "Contact us",
+          "width": 88,
+          "height": 19,
+          "pass": false
+        },
+        {
+          "element": "A",
+          "text": "Home",
+          "width": 43,
+          "height": 18,
+          "pass": false
+        },
+        {
+          "element": "A",
+          "text": "Gutter Topper",
+          "width": 102,
+          "height": 18,
+          "pass": false
+        },
+        {
+          "element": "A",
+          "text": "Heater Cap",
+          "width": 80,
+          "height": 18,
+          "pass": false
+        },
+        {
+          "element": "A",
+          "text": "Process",
+          "width": 55,
+          "height": 18,
+          "pass": false
+        },
+        {
+          "element": "A",
+          "text": "Reviews",
+          "width": 59,
+          "height": 18,
+          "pass": false
+        },
+        {
+          "element": "A",
+          "text": "FAQ",
+          "width": 31,
+          "height": 18,
+          "pass": false
+        },
+        {
+          "element": "A",
+          "text": "Contact",
+          "width": 57,
+          "height": 18,
+          "pass": false
+        }
+      ]
+    },
+    "formInputs": {
+      "pass": true,
+      "inputs": [
+        {
+          "type": "text",
+          "id": "name",
+          "fontSize": 16,
+          "pass": true
+        },
+        {
+          "type": "tel",
+          "id": "phone",
+          "fontSize": 16,
+          "pass": true
+        },
+        {
+          "type": "email",
+          "id": "email",
+          "fontSize": 16,
+          "pass": true
+        },
+        {
+          "type": "text",
+          "id": "address",
+          "fontSize": 16,
+          "pass": true
+        },
+        {
+          "type": "select-one",
+          "id": "property_type",
+          "fontSize": 16,
+          "pass": true
+        },
+        {
+          "type": "select-one",
+          "id": "issue",
+          "fontSize": 16,
+          "pass": true
+        },
+        {
+          "type": "textarea",
+          "id": "details",
+          "fontSize": 16,
+          "pass": true
+        }
+      ]
+    },
+    "mobileMenu": false,
+    "noConsoleErrors": true,
+    "imagesLoaded": {
+      "pass": false,
+      "total": 17,
+      "failed": 8,
+      "failedSrcs": [
+        "http://localhost:3000/_next/image?url=%2Flocal-owned-logo.webp&w=640&q=75",
+        "http://localhost:3000/_next/image?url=%2Fassets%2Fheater-cap%2Fbefore-after-heater-1.jpg&w=1080&q=75",
+        "http://localhost:3000/_next/image?url=%2Fassets%2Fgutter-guards%2Fgutter-guards-set2-8.webp&w=828&q=75",
+        "http://localhost:3000/_next/image?url=%2Fassets%2Fheater-cap%2Fbefore-after-heater-1.jpg&w=828&q=75",
+        "http://localhost:3000/_next/image?url=%2Fassets%2Fgutter-guards%2Fgutter-guards-10.webp&w=828&q=75"
+      ]
+    }
+  },
+  "loadTime": 1190,
+  "coreWebVitals": {
+    "lcp": "0.40s",
+    "fid": "0.60ms",
+    "cls": "0.292",
+    "lcpPass": true,
+    "fidPass": true,
+    "clsPass": false
+  }
+}

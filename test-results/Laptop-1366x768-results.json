@@ -1,0 +1,32 @@
+{
+  "device": "Laptop 1366x768",
+  "viewport": "1366x768",
+  "timestamp": "2025-10-31T16:12:00.863Z",
+  "checks": {
+    "loadTimeUnder3s": true,
+    "noHorizontalScroll": true,
+    "formValidation": true,
+    "noConsoleErrors": true,
+    "imagesLoaded": {
+      "pass": false,
+      "total": 17,
+      "failed": 8,
+      "failedSrcs": [
+        "http://localhost:3000/_next/image?url=%2Flocal-owned-logo.webp&w=640&q=75",
+        "http://localhost:3000/_next/image?url=%2Fassets%2Fheater-cap%2Fbefore-after-heater-1.jpg&w=1080&q=75",
+        "http://localhost:3000/_next/image?url=%2Fassets%2Fgutter-guards%2Fgutter-guards-set2-8.webp&w=828&q=75",
+        "http://localhost:3000/_next/image?url=%2Fassets%2Fheater-cap%2Fbefore-after-heater-1.jpg&w=828&q=75",
+        "http://localhost:3000/_next/image?url=%2Fassets%2Fgutter-guards%2Fgutter-guards-10.webp&w=828&q=75"
+      ]
+    }
+  },
+  "loadTime": 974,
+  "coreWebVitals": {
+    "lcp": "0.28s",
+    "fid": "1.20ms",
+    "cls": "N/A",
+    "lcpPass": true,
+    "fidPass": true,
+    "clsPass": null
+  }
+}

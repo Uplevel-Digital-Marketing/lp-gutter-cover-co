@@ -1,0 +1,396 @@
+.seasonalSection {
+  padding: 6rem 1.5rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e6f0fd 100%);
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header Styles */
+.headerWrapper {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.sectionTitle {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #2d3748;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.titleDivider {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #3182ce, #38b2ac);
+  margin: 1.2rem auto 1.5rem;
+  border-radius: 2px;
+}
+
+.sectionSubtitle {
+  font-size: 1.4rem;
+  color: #4a5568;
+  font-weight: 500;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Tab Styles */
+.tabsContainer {
+  margin-bottom: 3rem;
+}
+
+.tabButtons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.tabButton {
+  padding: 1rem 2rem;
+  border: none;
+  background-color: #e2e8f0;
+  color: #4a5568;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.tabButton:hover {
+  background-color: rgba(var(--tab-color-rgb, 49, 130, 206), 0.1);
+  color: var(--tab-color, #3182ce);
+  transform: translateY(-2px);
+}
+
+.activeTab {
+  background-color: var(--tab-color, #3182ce);
+  color: white;
+  box-shadow: 0 5px 15px rgba(var(--tab-color-rgb, 49, 130, 206), 0.3);
+}
+
+.activeTab:hover {
+  background-color: var(--tab-color, #3182ce);
+  color: white;
+}
+
+.tabIcon {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.tabButton:hover .tabIcon {
+  transform: scale(1.2);
+}
+
+.tabLabel {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* Content Styles */
+.seasonalContent {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+.seasonalPanel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 500px;
+  animation: fadeIn 0.5s ease;
+}
+
+.animating {
+  animation: fadeOut 0.2s ease forwards, fadeIn 0.3s ease 0.2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.contentText {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.contentTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--content-color, #3182ce);
+  margin-bottom: 1.2rem;
+  line-height: 1.2;
+}
+
+.contentDescription {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4a5568;
+  margin-bottom: 2rem;
+}
+
+.benefitsList {
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.benefitsTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefitItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  font-size: 1.05rem;
+  color: #4a5568;
+}
+
+.benefitIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--benefit-color, #3182ce);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.actionArea {
+  margin-top: auto;
+}
+
+.actionButton {
+  background-color: var(--action-color, #3182ce);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(var(--action-color-rgb, 49, 130, 206), 0.3);
+}
+
+.actionButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(var(--action-color-rgb, 49, 130, 206), 0.4);
+}
+
+.contentImage {
+  position: relative;
+  background-color: #f7fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seasonalImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.imageContainer:hover .seasonalImage {
+  transform: scale(1.05);
+}
+
+.imageLabel {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--label-color, #3182ce);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+/* Tagline Styles */
+.seasonalTagline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  background-color: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.taglineIcon {
+  font-size: 2.5rem;
+  margin-right: 1.5rem;
+  color: #3182ce;
+}
+
+.taglineText {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #4a5568;
+  margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .sectionTitle {
+    font-size: 2.4rem;
+  }
+  
+  .seasonalPanel {
+    grid-template-columns: 1fr;
+  }
+  
+  .contentImage {
+    min-height: 350px;
+    order: -1;
+  }
+  
+  .contentText {
+    padding: 2rem;
+  }
+  
+  .contentTitle {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .seasonalSection {
+    padding: 4rem 1.2rem;
+  }
+  
+  .tabButtons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .tabButton {
+    width: 100%;
+  }
+  
+  .sectionTitle {
+    font-size: 2.1rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.2rem;
+  }
+  
+  .contentDescription {
+    font-size: 1rem;
+  }
+  
+  .contentText {
+    padding: 1.5rem;
+  }
+  
+  .contentImage {
+    min-height: 300px;
+  }
+  
+  .seasonalTagline {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  
+  .taglineIcon {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .titleDivider {
+    width: 80px;
+    margin: 1rem auto 1.2rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.1rem;
+  }
+  
+  .contentTitle {
+    font-size: 1.5rem;
+  }
+  
+  .benefitItem {
+    font-size: 0.95rem;
+  }
+  
+  .taglineText {
+    font-size: 1rem;
+  }
+} 

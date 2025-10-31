@@ -1,0 +1,118 @@
+.whyActNow {
+  padding: 4rem 1rem;
+  background-color: #62cadb;
+  color: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: white;
+  font-weight: normal;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.textContent {
+  flex: 1;
+}
+
+.intro {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.damageList {
+  margin-bottom: 2.5rem;
+  padding-left: 1.5rem;
+}
+
+.damageList li {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.offer {
+  background-color: white;
+  color: #3f3c40;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.offerTitle {
+  color: #62cadb;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.offerText {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.offerTerms {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #62cadb;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: #55b5c5;
+}
+
+.imageContent {
+  flex: 1;
+}
+
+.damageImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 768px) {
+  .content {
+    flex-direction: row;
+  }
+  
+  .textContent {
+    padding-right: 2rem;
+  }
+} 

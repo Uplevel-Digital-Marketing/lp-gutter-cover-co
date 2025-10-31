@@ -1,0 +1,381 @@
+.problemSection {
+  padding: 5rem 1rem 6rem;
+  background-color: #f7f9fc;
+  background-image: linear-gradient(135deg, #f7f9fc 0%, #edf2f7 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+.problemHeader {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.problemTitle {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #2d3748;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+  position: relative;
+  display: inline-block;
+}
+
+.problemTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #2b6cb0, #38b2ac);
+}
+
+.problemSubtitle {
+  font-size: 1.3rem;
+  color: #4a5568;
+  margin-top: 1.5rem;
+  font-weight: 400;
+}
+
+/* Problem Display Area */
+.problemDisplay {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+/* Tabs Container */
+.tabsContainer {
+  display: flex;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  justify-content: space-between;
+  position: relative;
+  padding: 0 10px;
+}
+
+.tabsContainer::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+.tabsContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 30px;
+  background: linear-gradient(to right, rgba(248, 250, 252, 0), rgba(248, 250, 252, 0.8));
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tabsContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 30px;
+  background: linear-gradient(to left, rgba(248, 250, 252, 0), rgba(248, 250, 252, 0.8));
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tabButton {
+  padding: 1.2rem 0.8rem;
+  white-space: nowrap;
+  border: none;
+  background-color: transparent;
+  color: #4a5568;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  flex: 1;
+  min-width: 0; /* Allow flex items to shrink below content size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+}
+
+.tabButton::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3182ce, #38b2ac);
+  transition: width 0.3s ease;
+}
+
+.tabIcon {
+  font-size: 1.4rem;
+  transition: transform 0.2s ease;
+  margin-right: 0.3rem;
+  flex-shrink: 0;
+}
+
+.tabButton:hover {
+  color: #2b6cb0;
+  background-color: rgba(226, 232, 240, 0.3);
+}
+
+.tabButton:hover .tabIcon {
+  transform: scale(1.1);
+}
+
+.activeTab {
+  color: #2b6cb0;
+  background-color: rgba(226, 232, 240, 0.5);
+}
+
+.activeTab::after {
+  width: 100%;
+}
+
+.tabText {
+  font-size: 0.95rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Content Area */
+.contentArea {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 400px;
+}
+
+.imageContainer {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.problemImage {
+  object-fit: cover;
+  transition: transform 2s ease;
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent);
+}
+
+.detailsContainer {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.detailsTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.detailsDescription {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #4a5568;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.problemStats {
+  background-color: #ebf8ff;
+  border-radius: 8px;
+  padding: 1.2rem;
+  border-left: 4px solid #3182ce;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.statIcon {
+  font-size: 1.6rem;
+}
+
+.statText {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2c5282;
+  line-height: 1.4;
+}
+
+/* Action Section */
+.actionSection {
+  text-align: center;
+  margin-top: 3.5rem;
+}
+
+.actionTitle {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+}
+
+.actionButton {
+  padding: 1rem 2.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #3182ce, #38b2ac);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(49, 130, 206, 0.4);
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.actionButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(49, 130, 206, 0.5);
+}
+
+.actionNote {
+  font-size: 0.9rem;
+  color: #718096;
+  margin-top: 1rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .problemTitle {
+    font-size: 2.2rem;
+  }
+  
+  .contentArea {
+    grid-template-columns: 1fr;
+  }
+  
+  .imageContainer {
+    height: 300px;
+  }
+  
+  .tabsContainer {
+    justify-content: flex-start;
+    padding: 0;
+  }
+  
+  .tabButton {
+    flex: 0 0 auto;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .problemSection {
+    padding: 4rem 1rem;
+  }
+  
+  .problemTitle {
+    font-size: 2rem;
+  }
+  
+  .problemSubtitle {
+    font-size: 1.1rem;
+  }
+  
+  .tabButton {
+    padding: 1rem 0.6rem;
+    font-size: 0.8rem;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 90px;
+  }
+  
+  .tabIcon {
+    font-size: 1.2rem;
+    margin-right: 0;
+  }
+  
+  .tabText {
+    font-size: 0.75rem;
+    max-width: 100%;
+  }
+  
+  .detailsContainer {
+    padding: 1.8rem;
+  }
+  
+  .detailsTitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .detailsDescription {
+    font-size: 1rem;
+  }
+  
+  .actionTitle {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .problemTitle {
+    font-size: 1.8rem;
+  }
+  
+  .tabButton {
+    padding: 0.8rem 1rem;
+  }
+  
+  .imageContainer {
+    height: 220px;
+  }
+  
+  .detailsContainer {
+    padding: 1.5rem;
+  }
+  
+  .detailsTitle {
+    font-size: 1.3rem;
+  }
+  
+  .detailsDescription {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .problemStats {
+    padding: 1rem;
+  }
+  
+  .statText {
+    font-size: 0.85rem;
+  }
+  
+  .actionButton {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.9rem;
+  }
+} 

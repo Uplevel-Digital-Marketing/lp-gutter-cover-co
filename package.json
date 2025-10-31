@@ -1,0 +1,26 @@
+{
+  "name": "gutter-cover-co",
+  "version": "1.0.0",
+  "description": "Gutter Cover Co landing page",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "keywords": [
+    "gutter",
+    "protection",
+    "ice dams",
+    "home improvement"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "js-cookie": "^3.0.5",
+    "next": "^15.2.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

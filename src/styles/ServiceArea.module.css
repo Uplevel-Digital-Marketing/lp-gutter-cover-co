@@ -1,0 +1,279 @@
+.serviceArea {
+  padding: 6rem 1.5rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e6f0fd 100%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #2d3748;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.titleDivider {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #3182ce, #38b2ac);
+  margin: 1.2rem auto 1.5rem;
+  border-radius: 2px;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  color: #4a5568;
+  font-weight: 500;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Counties Container */
+.countiesContainer {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+}
+
+.countiesIntro {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.infoIcon {
+  color: #3182ce;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.countiesIntro p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.countiesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.countyItem {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid;
+  height: fit-content;
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.countyItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.countyHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.countyName {
+  font-size: 1.1rem;
+  color: #2d3748;
+  margin: 0;
+  font-weight: 600;
+}
+
+.countyIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #3182ce;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.countyDetails {
+  padding: 0 1.5rem 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  background-color: #f7fafc;
+}
+
+.detailsLabel {
+  display: block;
+  font-size: 0.9rem;
+  color: #718096;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+.citiesList {
+  margin: 0;
+  padding-left: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.3rem;
+}
+
+.citiesList li {
+  font-size: 0.95rem;
+  color: #4a5568;
+}
+
+/* Specialization */
+.specialization {
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.specializationIcon {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  border-radius: 50%;
+  background-color: #ebf8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3182ce;
+}
+
+.specialization p {
+  font-size: 1.2rem;
+  color: #2d3748;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Service Callout */
+.serviceCallout {
+  background-color: #ebf8ff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  border-left: 4px solid #3182ce;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.serviceCallout p {
+  font-size: 1.1rem;
+  color: #4a5568;
+  margin: 0;
+}
+
+.serviceCallout a {
+  color: #3182ce;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.serviceCallout a:hover {
+  color: #2c5282;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .serviceArea {
+    padding: 5rem 1.5rem;
+  }
+  
+  .title {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .serviceArea {
+    padding: 4rem 1.2rem;
+  }
+  
+  .title {
+    font-size: 2.1rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .countiesList {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+  
+  .specialization {
+    padding: 1.5rem;
+  }
+  
+  .specialization p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .titleDivider {
+    width: 80px;
+    margin: 1rem auto 1.2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .countiesList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .countyName {
+    font-size: 1rem;
+  }
+  
+  .specialization {
+    flex-direction: column;
+    padding: 1.2rem;
+    text-align: center;
+  }
+} 
