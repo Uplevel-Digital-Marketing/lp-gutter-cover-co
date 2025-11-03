@@ -35,11 +35,12 @@ const Header = () => {
         <div className="container">
           <div className={styles.navContent}>
             <div className={styles.logo}>
-              <Image 
+              <Image
                 src="/assets/logo-gc-2020.jpeg"
                 alt="Gutter Cover Co Logo"
                 width={180}
                 height={60}
+                style={{ width: 'auto', height: 'auto' }}
                 priority
               />
             </div>

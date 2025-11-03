@@ -108,6 +108,7 @@ const ProblemAwareness = () => {
                 src={problems[activeTab].image}
                 alt={problems[activeTab].fullTitle}
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className={styles.problemImage}
                 priority
               />

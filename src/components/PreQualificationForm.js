@@ -27,50 +27,111 @@ const PreQualificationForm = () => {
     up_source: '',
   });
   
-  // Initialize Google Places Autocomplete
+  // Business location for biasing autocomplete results
+  const BUSINESS_LOCATION = { lat: 41.3683, lng: -82.1076 }; // 175 Abbe Rd S, Elyria, OH 44035
+
+  // State for autocomplete predictions
+  const [predictions, setPredictions] = useState([]);
+  const [showPredictions, setShowPredictions] = useState(false);
+  const [sessionToken, setSessionToken] = useState(null);
+  const predictionsRef = useRef(null);
+
+  // Initialize session token on mount
   useEffect(() => {
-    // Wait for Google Maps API to load
-    const initAutocomplete = () => {
+    const initSessionToken = async () => {
       try {
-        if (typeof window !== 'undefined' &&
-            window.google &&
-            window.google.maps &&
-            window.google.maps.places &&
-            window.google.maps.places.Autocomplete &&
-            addressInputRef.current) {
-
-          const autocomplete = new window.google.maps.places.Autocomplete(addressInputRef.current, {
-            componentRestrictions: { country: 'us' },
-            fields: ['address_components', 'formatted_address'],
-            types: ['address']
-          });
-
-          autocomplete.addListener('place_changed', () => {
-            const place = autocomplete.getPlace();
-            if (place && place.formatted_address) {
-              setFormData(prevState => ({
-                ...prevState,
-                address: place.formatted_address
-              }));
-            }
-          });
+        if (typeof window !== 'undefined' && window.google) {
+          const { AutocompleteSessionToken } = await window.google.maps.importLibrary('places');
+          setSessionToken(new AutocompleteSessionToken());
         }
       } catch (error) {
-        // Silently fail - address input will work as regular text input
-        console.warn('Google Places API not available - using standard address input');
+        console.warn('Failed to initialize session token:', error);
       }
     };
 
-    // Try to initialize immediately
-    initAutocomplete();
+    initSessionToken();
+  }, []);
 
-    // Also listen for Google Maps script load event
-    if (typeof window !== 'undefined') {
-      window.addEventListener('load', initAutocomplete);
-      return () => window.removeEventListener('load', initAutocomplete);
+  // Fetch autocomplete predictions
+  const fetchPredictions = async (input) => {
+    if (!input || input.length < 3) {
+      setPredictions([]);
+      setShowPredictions(false);
+      return;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Only run once on mount
+
+    try {
+      const { AutocompleteSuggestion } = await window.google.maps.importLibrary('places');
+
+      const request = {
+        input: input,
+        locationRestriction: {
+          west: BUSINESS_LOCATION.lng - 0.5,
+          north: BUSINESS_LOCATION.lat + 0.5,
+          east: BUSINESS_LOCATION.lng + 0.5,
+          south: BUSINESS_LOCATION.lat - 0.5,
+        },
+        origin: BUSINESS_LOCATION,
+        includedPrimaryTypes: ['street_address', 'premise'],
+        language: 'en-US',
+        region: 'us',
+        sessionToken: sessionToken,
+      };
+
+      const { suggestions } = await AutocompleteSuggestion.fetchAutocompleteSuggestions(request);
+
+      setPredictions(suggestions || []);
+      setShowPredictions(true);
+    } catch (error) {
+      console.warn('Failed to fetch autocomplete predictions:', error);
+      setPredictions([]);
+      setShowPredictions(false);
+    }
+  };
+
+  // Handle address input change
+  const handleAddressChange = (e) => {
+    const value = e.target.value;
+    handleChange(e);
+    fetchPredictions(value);
+  };
+
+  // Handle prediction selection
+  const handlePredictionSelect = async (prediction) => {
+    try {
+      const place = prediction.placePrediction.toPlace();
+      await place.fetchFields({
+        fields: ['formattedAddress', 'displayName'],
+      });
+
+      setFormData(prevState => ({
+        ...prevState,
+        address: place.formattedAddress || place.displayName,
+      }));
+
+      setPredictions([]);
+      setShowPredictions(false);
+
+      // Create new session token for next search
+      const { AutocompleteSessionToken } = await window.google.maps.importLibrary('places');
+      setSessionToken(new AutocompleteSessionToken());
+    } catch (error) {
+      console.warn('Failed to get place details:', error);
+    }
+  };
+
+  // Close predictions when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (predictionsRef.current && !predictionsRef.current.contains(event.target) &&
+          addressInputRef.current && !addressInputRef.current.contains(event.target)) {
+        setShowPredictions(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
   
   // Get UTM parameters from URL and store in cookies on component mount
   useEffect(() => {
@@ -305,22 +366,54 @@ const PreQualificationForm = () => {
               )}
             </div>
 
-            <div className={styles.formGroup}>
+            <div className={styles.formGroup} style={{ position: 'relative' }}>
               <label htmlFor="address">Street Address *</label>
               <input
                 type="text"
                 id="address"
                 name="address"
                 value={formData.address}
-                onChange={handleChange}
+                onChange={handleAddressChange}
                 onBlur={handleBlur}
                 ref={addressInputRef}
                 className={touched.address && errors.address ? styles.inputError : ''}
                 placeholder="Start typing your address"
+                autoComplete="off"
                 required
                 aria-invalid={touched.address && errors.address ? 'true' : 'false'}
                 aria-describedby={touched.address && errors.address ? 'address-error' : undefined}
+                aria-autocomplete="list"
+                aria-controls="address-predictions"
+                aria-expanded={showPredictions}
               />
+              {showPredictions && predictions.length > 0 && (
+                <ul
+                  id="address-predictions"
+                  ref={predictionsRef}
+                  className={styles.predictions}
+                  role="listbox"
+                >
+                  {predictions.map((suggestion, index) => (
+                    suggestion.placePrediction && (
+                      <li
+                        key={index}
+                        onClick={() => handlePredictionSelect(suggestion)}
+                        className={styles.predictionItem}
+                        role="option"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handlePredictionSelect(suggestion);
+                          }
+                        }}
+                      >
+                        {suggestion.placePrediction.text.toString()}
+                      </li>
+                    )
+                  ))}
+                </ul>
+              )}
               {touched.address && errors.address && (
                 <span className={styles.errorMessage} id="address-error" role="alert">
                   {errors.address}
