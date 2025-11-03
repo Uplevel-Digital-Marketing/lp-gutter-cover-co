@@ -34,18 +34,56 @@ const PreQualificationForm = () => {
   const [predictions, setPredictions] = useState([]);
   const [showPredictions, setShowPredictions] = useState(false);
   const [sessionToken, setSessionToken] = useState(null);
+  const [isApiReady, setIsApiReady] = useState(false);
   const predictionsRef = useRef(null);
+
+  // Helper function to wait for Google Maps API to load
+  const waitForGoogleMaps = () => {
+    return new Promise((resolve, reject) => {
+      if (typeof window === 'undefined') {
+        reject(new Error('Window is not defined'));
+        return;
+      }
+
+      // If already loaded
+      if (window.google && window.google.maps && window.google.maps.importLibrary) {
+        resolve();
+        return;
+      }
+
+      // Wait for up to 10 seconds
+      let attempts = 0;
+      const maxAttempts = 50; // 50 * 200ms = 10 seconds
+
+      const checkInterval = setInterval(() => {
+        attempts++;
+
+        if (window.google && window.google.maps && window.google.maps.importLibrary) {
+          clearInterval(checkInterval);
+          resolve();
+        } else if (attempts >= maxAttempts) {
+          clearInterval(checkInterval);
+          reject(new Error('Google Maps API failed to load after 10 seconds'));
+        }
+      }, 200);
+    });
+  };
 
   // Initialize session token on mount
   useEffect(() => {
     const initSessionToken = async () => {
       try {
-        if (typeof window !== 'undefined' && window.google) {
-          const { AutocompleteSessionToken } = await window.google.maps.importLibrary('places');
-          setSessionToken(new AutocompleteSessionToken());
-        }
+        // Wait for Google Maps API to be available
+        await waitForGoogleMaps();
+
+        const { AutocompleteSessionToken } = await window.google.maps.importLibrary('places');
+        setSessionToken(new AutocompleteSessionToken());
+        setIsApiReady(true);
+        console.log('Google Places API initialized successfully');
       } catch (error) {
-        console.warn('Failed to initialize session token:', error);
+        console.error('Failed to initialize Google Places API:', error);
+        console.error('API Key present:', !!process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY);
+        setIsApiReady(false);
       }
     };
 
@@ -60,7 +98,17 @@ const PreQualificationForm = () => {
       return;
     }
 
+    // Don't fetch if API isn't ready
+    if (!isApiReady || !sessionToken) {
+      console.warn('Google Maps API not ready yet');
+      return;
+    }
+
     try {
+      if (!window.google || !window.google.maps || !window.google.maps.importLibrary) {
+        throw new Error('Google Maps API not available');
+      }
+
       const { AutocompleteSuggestion } = await window.google.maps.importLibrary('places');
 
       const request = {
@@ -83,7 +131,7 @@ const PreQualificationForm = () => {
       setPredictions(suggestions || []);
       setShowPredictions(true);
     } catch (error) {
-      console.warn('Failed to fetch autocomplete predictions:', error);
+      console.error('Failed to fetch autocomplete predictions:', error);
       setPredictions([]);
       setShowPredictions(false);
     }
@@ -99,6 +147,10 @@ const PreQualificationForm = () => {
   // Handle prediction selection
   const handlePredictionSelect = async (prediction) => {
     try {
+      if (!window.google || !window.google.maps || !window.google.maps.importLibrary) {
+        throw new Error('Google Maps API not available');
+      }
+
       const place = prediction.placePrediction.toPlace();
       await place.fetchFields({
         fields: ['formattedAddress', 'displayName'],
@@ -116,7 +168,10 @@ const PreQualificationForm = () => {
       const { AutocompleteSessionToken } = await window.google.maps.importLibrary('places');
       setSessionToken(new AutocompleteSessionToken());
     } catch (error) {
-      console.warn('Failed to get place details:', error);
+      console.error('Failed to get place details:', error);
+      // Still close the dropdown
+      setPredictions([]);
+      setShowPredictions(false);
     }
   };
 
