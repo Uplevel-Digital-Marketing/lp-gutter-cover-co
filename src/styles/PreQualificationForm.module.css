@@ -47,7 +47,18 @@
 }
 
 .formGroup.fullWidth {
-  grid-column: span 2;
+  grid-column: 1;
+}
+
+/* Force single column on mobile */
+@media (max-width: 767px) {
+  .formGrid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .formGroup {
+    grid-column: 1 !important;
+  }
 }
 
 .formGroup label {
@@ -251,12 +262,12 @@
   }
 
   .formGrid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 1.5rem;
   }
 
   .formGroup.fullWidth {
-    grid-column: span 2;
+    grid-column: 1 / -1 !important;
   }
 
   .formFooter {
