@@ -55,7 +55,7 @@
 
 .featureGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.8rem;
   margin-bottom: 4rem;
 }
@@ -258,12 +258,32 @@
   opacity: 0.9;
 }
 
-/* Responsive styles */
-@media (max-width: 992px) {
+/* Responsive styles - Mobile First */
+@media (min-width: 640px) {
+  .featureGrid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (min-width: 992px) {
+  .featureGrid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+
+  .sectionTitle {
+    font-size: 2.8rem;
+  }
+
+  .companyInfo {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+@media (max-width: 991px) {
   .sectionTitle {
     font-size: 2.4rem;
   }
-  
+
   .companyInfo {
     grid-template-columns: 1fr;
   }
@@ -273,35 +293,31 @@
   .differentSection {
     padding: 5rem 1.2rem;
   }
-  
+
   .sectionTitle {
     font-size: 2.1rem;
   }
-  
+
   .sectionSubtitle {
     font-size: 1.2rem;
   }
-  
-  .featureGrid {
-    grid-template-columns: 1fr;
-  }
-  
+
   .statBox {
     padding: 1.5rem;
   }
-  
+
   .statItem {
     min-width: 100px;
   }
-  
+
   .statNumber {
     font-size: 2rem;
   }
-  
+
   .quote {
     padding: 2.5rem 1.5rem;
   }
-  
+
   .quoteText {
     font-size: 1.3rem;
   }

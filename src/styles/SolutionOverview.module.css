@@ -94,10 +94,10 @@
   transform: translateX(-50%) scaleX(1);
 }
 
-/* Tab Content */
+/* Tab Content - Mobile First */
 .tabContent {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 2.5rem;
   padding: 2.5rem;
 }
@@ -276,12 +276,26 @@
   margin: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 992px) {
+/* Responsive Design - Mobile First */
+@media (min-width: 992px) {
+  .solutionSection {
+    padding: 6rem 1.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 2.8rem;
+  }
+
+  .tabContent {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 991px) {
   .solutionSection {
     padding: 5rem 1.5rem;
   }
-  
+
   .sectionTitle {
     font-size: 2.4rem;
   }
@@ -322,13 +336,12 @@
   .activeTab {
     border-bottom: 1px solid #e2e8f0;
   }
-  
+
   .tabContent {
-    grid-template-columns: 1fr;
     padding: 1.5rem;
     gap: 2rem;
   }
-  
+
   .imageWrapper {
     height: 250px;
     margin-bottom: 1rem;

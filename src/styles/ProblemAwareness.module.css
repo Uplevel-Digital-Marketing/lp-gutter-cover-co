@@ -158,10 +158,10 @@
   white-space: nowrap;
 }
 
-/* Content Area */
+/* Content Area - Mobile First */
 .contentArea {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   min-height: 400px;
 }
 
@@ -266,25 +266,31 @@
   margin-top: 1rem;
 }
 
-/* Responsive Styles */
-@media (max-width: 992px) {
+/* Responsive Styles - Mobile First */
+@media (min-width: 992px) {
+  .problemTitle {
+    font-size: 2.6rem;
+  }
+
+  .contentArea {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 991px) {
   .problemTitle {
     font-size: 2.2rem;
   }
-  
-  .contentArea {
-    grid-template-columns: 1fr;
-  }
-  
+
   .imageContainer {
     height: 300px;
   }
-  
+
   .tabsContainer {
     justify-content: flex-start;
     padding: 0;
   }
-  
+
   .tabButton {
     flex: 0 0 auto;
     min-width: 120px;
