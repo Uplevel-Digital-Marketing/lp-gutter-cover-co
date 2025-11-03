@@ -134,7 +134,7 @@ export default async function handler(req, res) {
 
     // Send data to webhook with timeout
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 second timeout
+    const timeoutId = setTimeout(() => controller.abort(), 60000); // 60 second timeout
 
     try {
       const webhookResponse = await fetch(webhookUrl, {
