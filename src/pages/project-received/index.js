@@ -17,21 +17,21 @@ const ProjectReceived = () => {
     {
       id: 1,
       name: 'Michael S.',
-      location: 'Raleigh, NC',
+      location: 'Shaker Heights, OH',
       rating: 5,
       text: 'The installation was quick and professional. No more climbing ladders to clean gutters - what a relief!'
     },
     {
       id: 2,
       name: 'Jennifer L.',
-      location: 'Cary, NC',
+      location: 'Beachwood, OH',
       rating: 5,
       text: 'Our home had serious issues with ice dams every winter. After installing these gutter guards, we haven\'t had a single problem. Highly recommended!'
     },
     {
       id: 3,
       name: 'Robert D.',
-      location: 'Durham, NC',
+      location: 'Mentor, OH',
       rating: 5,
       text: 'Great service from start to finish. The team was knowledgeable and helped us choose the right solution for our home.'
     }

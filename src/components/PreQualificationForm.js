@@ -10,6 +10,7 @@ const PreQualificationForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
+  const [submitError, setSubmitError] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -79,10 +80,8 @@ const PreQualificationForm = () => {
         const { AutocompleteSessionToken } = await window.google.maps.importLibrary('places');
         setSessionToken(new AutocompleteSessionToken());
         setIsApiReady(true);
-        console.log('Google Places API initialized successfully');
       } catch (error) {
         console.error('Failed to initialize Google Places API:', error);
-        console.error('API Key present:', !!process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY);
         setIsApiReady(false);
       }
     };
@@ -310,6 +309,9 @@ const PreQualificationForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Clear previous submit error
+    setSubmitError('');
+
     // Mark all fields as touched
     const allFields = ['name', 'phone', 'email', 'address', 'property_type', 'issue', 'details'];
     const touchedFields = {};
@@ -318,13 +320,14 @@ const PreQualificationForm = () => {
 
     // Validate all fields
     if (!validateForm()) {
+      setSubmitError('Please fix the errors above before submitting.');
       return;
     }
 
     setIsSubmitting(true);
 
     try {
-      // Send form data to webhook
+      // Send form data to API
       const response = await fetch('/api/submit-form', {
         method: 'POST',
         headers: {
@@ -333,16 +336,26 @@ const PreQualificationForm = () => {
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         // Redirect to project-received page with trailing slash
         router.push('/project-received/');
       } else {
-        // Show error message to user
-        alert('There was an error submitting your form. Please try again.');
+        // Show error message inline based on field
+        if (data.field && data.field !== 'submit' && data.field !== 'form') {
+          // Field-specific error
+          setErrors(prev => ({ ...prev, [data.field]: data.error }));
+          setTouched(prev => ({ ...prev, [data.field]: true }));
+          setSubmitError(`Please fix the ${data.field} field and try again.`);
+        } else {
+          // General submit error
+          setSubmitError(data.error || 'Unable to submit form. Please try again or call us at (440) 336-8092.');
+        }
         setIsSubmitting(false);
       }
     } catch (error) {
-      alert('There was an error submitting your form. Please try again.');
+      setSubmitError('Network error. Please check your connection and try again.');
       setIsSubmitting(false);
     }
   };
@@ -543,11 +556,20 @@ const PreQualificationForm = () => {
           </div>
           
           <div className={styles.formFooter}>
+            {submitError && (
+              <div className={styles.submitErrorBanner} role="alert">
+                <svg className={styles.errorIcon} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M12 8v4M12 16h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+                <p className={styles.submitErrorText}>{submitError}</p>
+              </div>
+            )}
             <p className={styles.privacyNote}>
               * Required fields. We respect your privacy and will never share your information.
             </p>
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className={styles.submitButton}
               disabled={isSubmitting}
             >
